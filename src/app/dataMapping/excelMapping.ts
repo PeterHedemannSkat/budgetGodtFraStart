@@ -1,16 +1,19 @@
-import { ExcelType } from '../components/excel-type/interfaces';
+import { ExcelType } from '../components/excel-type-2/interfaces';
 import { StateContainer } from './stateContainer';
 
 export const indtagter: ExcelType[] = [
     {
         id: 'vareSalg',
         value: null,
-        txt: 'salg af varer'
+        txt: 'salg af varer',
+        editable: false
+
     },
     {
         id: 'ydelserSalg',
         value: null,
-        txt: 'salg af ydelser'
+        txt: 'salg af ydelser',
+        editable: false
     }
 
 ];
@@ -19,17 +22,20 @@ export const udgifter: ExcelType[] = [
     {
         id: 'vareforbrug',
         value: null,
-        txt: 'vareforbrug'
+        txt: 'vareforbrug',
+        editable: false
     },
     {
         id: 'transport',
         value: null,
-        txt: 'transport'
+        txt: 'transport',
+        editable: false
     },
     {
         id: 'lokaleeje',
         value: null,
-        txt: 'lokaleeje'
+        txt: 'lokaleeje',
+        editable: false
     }
 ];
 

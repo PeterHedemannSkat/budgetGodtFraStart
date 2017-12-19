@@ -1,0 +1,53 @@
+<table class="budget-schema">
+    <th>{{heading | FirstLetterToCapital}}</th>
+    <th></th>
+
+    <tr *ngFor = "let row of inputRows">
+      <td>
+        
+        <ng-container *ngIf = "!row.editable; else edit">
+          <label [for] = "row.id">
+            {{row.txt | FirstLetterToCapital}}
+          </label>
+        </ng-container>
+
+        <ng-template #edit>
+            
+                <input   
+                  type        = "tel" 
+                  name        = "add" 
+                  placeholder = "skriv navn" 
+                  class       = "form-control"
+                  [(ngModel)] = "row.txt"
+                >
+        </ng-template>
+
+      </td>
+      <td>
+        <input 
+          appReadabledigitformatdirective 
+          type        = "tel" 
+          [name]      = "row.id" 
+          placeholder = "skriv beløb" 
+          class       = "form-control"
+          [(value)]   = "row.value"
+          (keyup)     = "update()"
+          mask        = ".">
+          <span> kr.</span>
+      </td>
+    </tr>
+    <tr>
+      <td><button type = "button" class = "btn btn-specific" (click) = "addRow()">Tilføj {{typeName}}</button></td>
+      <td></td>
+    </tr>
+
+    <tr>
+        <td>
+          {{pluraltypeName}} i alt
+        </td>
+        <td class="sum-table">{{value | readableDigitFormat}} kr.</td>
+    </tr>
+
+  </table>
+
+

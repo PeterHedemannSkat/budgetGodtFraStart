@@ -21,6 +21,7 @@ import { TusindtalsSep } from './sharedServices/tusindtalssep';
 import { ExcelTypeComponent } from './components/excel-type/excel-type.component';
 import { FirstLetterToCapitalPipe } from './pipes/firstCapitalLetter';
 import { StateService } from './state/stateContainer';
+import { ExcelTypeSecondComponent } from './components/excel-type-2/excel-type.component';
 
 
 
@@ -32,6 +33,7 @@ import { StateService } from './state/stateContainer';
     ReadableDigitFormatDirective,
     TusindtalsSep,
     ExcelTypeComponent,
+    ExcelTypeSecondComponent,
     FirstLetterToCapitalPipe
 
   ],

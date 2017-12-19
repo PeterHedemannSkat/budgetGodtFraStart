@@ -87,24 +87,24 @@ table.total-sum tr td:first-child {
     border:1px solid gray;
 }
 
-app-excel-type {
+app-excel-type, app-excel-type-2  {
     height: 100%;
     width: 100%;
     margin-bottom: 2em;
 }
 
-app-excel-type .btn.btn-default {
+app-excel-type .btn.btn-default, app-excel-type-2 .btn.btn-default  {
     padding: 0.8em;
     max-width: 5em;
 }
 
-app-excel-type .btn-specific {
+app-excel-type .btn-specific, app-excel-type-2 .btn-specific  {
     background: none;
     border: 1px solid gray;
     padding: 0.5em 1em;
 }
 
-app-excel-type .btn-specific:hover {
+app-excel-type .btn-specific:hover, app-excel-type-2 .btn-specific:hover, app-excel-type-2 .btn-specific:focus  {
     color: black;
 }
 
@@ -113,7 +113,7 @@ input + span {
     position: relative;
 }
 
-app-root app-excel-type .form-control {
+app-root app-excel-type .form-control, app-root app-excel-type-2 .form-control  {
     padding-right: 2em;
 }
 
