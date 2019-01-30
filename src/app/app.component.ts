@@ -40,7 +40,8 @@ export class AppComponent implements OnInit {
       income = this.data.find(el => el.id === 'indtaegter').value,
       expenditure = this.data.find(el => el.id === 'udgifter').value;
 
-    return (income >= 0 && expenditure >= 0) ? (income - expenditure) : null;
+        return income >= 0 || expenditure >= 0
+            ? (income || 0) - (expenditure || 0)
+            : null;
   }
-
 }

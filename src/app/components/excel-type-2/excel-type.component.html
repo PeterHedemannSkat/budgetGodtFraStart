@@ -1,53 +1,50 @@
-<table class="budget-schema">
-    <th>{{heading | FirstLetterToCapital}}</th>
-    <th></th>
+<div class="row">
+    <div class="col-xs-12 heading">{{ heading | FirstLetterToCapital }}</div>
+</div>
 
-    <tr *ngFor = "let row of inputRows">
-      <td>
-        
-        <ng-container *ngIf = "!row.editable; else edit">
-          <label [for] = "row.id">
-            {{row.txt | FirstLetterToCapital}}
-          </label>
+<div class="row" *ngFor="let row of inputRows">
+    <div class="col-xs-6">
+        <ng-container *ngIf="!row.editable; else edit">
+            <label [for]="row.id"> {{ row.txt | FirstLetterToCapital }} </label>
         </ng-container>
 
         <ng-template #edit>
-            
-                <input   
-                  type        = "tel" 
-                  name        = "add" 
-                  placeholder = "skriv navn" 
-                  class       = "form-control"
-                  [(ngModel)] = "row.txt"
-                >
+            <input
+                type="tel"
+                name="add"
+                placeholder="skriv navn"
+                class="form-control"
+                [(ngModel)]="row.txt"
+            />
         </ng-template>
+    </div>
+    <div class="col-xs-6">
+        <div class="skts-postfix-kr">
+            <input
+                type="text"
+                [name]="row.id"
+                [(value)]="row.value"
+                (keyup)="update()"
+                class="form-control"
+                placeholder="skriv beløb"
+                mask="."
+                appReadabledigitformatdirective
+                type="tel"
+            />
+        </div>
+    </div>
+</div>
+<div class="row add-row">
+    <div class="col-xs-12 text-center">
+        <button type="button" class="as-anchor" (click)="addRow()">
+            <span class="badge">+</span>Tilføj {{ typeName }}
+        </button>
+    </div>
+</div>
 
-      </td>
-      <td>
-        <input 
-          appReadabledigitformatdirective 
-          type        = "tel" 
-          [name]      = "row.id" 
-          placeholder = "skriv beløb" 
-          class       = "form-control"
-          [(value)]   = "row.value"
-          (keyup)     = "update()"
-          mask        = ".">
-          <span> kr.</span>
-      </td>
-    </tr>
-    <tr>
-      <td><button type = "button" class = "btn btn-specific" (click) = "addRow()">Tilføj {{typeName}}</button></td>
-      <td></td>
-    </tr>
-
-    <tr>
-        <td>
-          {{pluraltypeName}} i alt
-        </td>
-        <td class="sum-table">{{value | readableDigitFormat}} kr.</td>
-    </tr>
-
-  </table>
-
-
+<div class="row temp-result">
+    <div class="col-xs-6">
+        {{ pluraltypeName | FirstLetterToCapital }} i alt
+    </div>
+    <div class="col-xs-6 text-right">{{ value | readableDigitFormat }} kr.</div>
+</div>

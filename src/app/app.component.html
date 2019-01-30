@@ -1,35 +1,29 @@
-
 <div class="main-content well">
+    <ng-container *ngFor="let table of data">
+        <app-excel-type-2
+            [inputRows]="table.data"
+            [heading]="table.headingTxt"
+            [id]="table.id"
+            [typeName]="table.singleTxt"
+            [(value)]="table.value"
+            [pluraltypeName]="table.headingTxt"
+        ></app-excel-type-2>
+    </ng-container>
 
-  <ng-container *ngFor = "let table of data">
-      <app-excel-type-2
-      [inputRows] = "table.data"
-      [heading]   = "table.headingTxt"
-      [id]        = "table.id"
-      [typeName]  = "table.singleTxt"
-      [(value)]   = "table.value"
-      [pluraltypeName] = "table.headingTxt"
-    ></app-excel-type-2>
+    <div class="row final-result">
+        <div class="col-xs-6">Resultat</div>
+        <div class="col-xs-6 text-right">
+            {{ getSum() | readableDigitFormat }} kr.
+        </div>
+    </div>
 
-  </ng-container>
-
-  <table class="total-sum">
-    <tr>
-      <td class="total-sum">Resultat</td>
-      <td style = "text-align:right">{{getSum() | readableDigitFormat}} kr.</td>
-    </tr>
-  </table>
-
-  <div *ngIf = "getSum() !== null" [ngSwitch] = "getSum() >= 0" class="todo">
-      <p *ngSwitchCase="true">
-        {{_txt.txt.get('actionoverskud') | FirstLetterToCapital}}
-      </p>
-      <p *ngSwitchCase="false">
-        {{_txt.txt.get('actionunderskud') | FirstLetterToCapital}}
-      
-      </p>
-  </div>
-  
-
+    <div *ngIf="getSum() !== null" [ngSwitch]="getSum() >= 0" class="todo">
+        <p
+            *ngSwitchCase="true"
+            [innerHTML]="_txt.txt.get('actionoverskud') | FirstLetterToCapital"
+        ></p>
+        <p *ngSwitchCase="false">
+            {{ _txt.txt.get('actionunderskud') | FirstLetterToCapital }}
+        </p>
+    </div>
 </div>
-  
