@@ -35,7 +35,7 @@ export const urlMapper: UrlRessources[] = [
     },
     {
         local: 'regnskab',
-        skatdk: '148865'
+        skatdk: '4190652'
     }
 
 ];

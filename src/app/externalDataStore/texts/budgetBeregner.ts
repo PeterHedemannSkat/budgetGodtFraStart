@@ -1,12 +1,13 @@
 export const regnskab = [
     {
         id: 'actionoverskud',
-        da: 'skriv overskuddet i felt 221'
-
+        da:
+            'Da resultatet er et overskud, skal selskabet betale skat af det, når regnskabsåret er omme. <br><br>Du kan 3 gange årligt vælge at betale en del af skatten forud som acontoskat.'
     },
     {
         id: 'actionunderskud',
-        da: 'Skriv underskuddet i felt 435'
+        da:
+            'Da resultatet er et underskud, kan selskabet overføre det til næste regnskabsår.'
     },
     {
         id: 'vareSalg',
@@ -27,5 +28,13 @@ export const regnskab = [
     {
         id: 'lokaleeje',
         da: 'lokaleeje'
+    },
+    {
+        id: 'loen',
+        da: 'løn'
+    },
+    {
+        id: 'telefoninternet',
+        da: 'telefon og internet'
     }
 ];
